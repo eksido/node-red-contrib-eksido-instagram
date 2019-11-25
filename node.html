@@ -1,0 +1,1668 @@
+<script type="text/javascript">
+    RED.nodes.registerType('eksido-instagram', {
+        category: 'function',
+        color: '#89bf04',
+        defaults: {
+            service: { value: "", type: "eksido-instagram-service", required: true },
+            method: { value: "", required: true },
+            getGeographiesByGeoIdMediaRecent_geoId: { value: "" },
+            getGeographiesByGeoIdMediaRecent_geoIdType: { value: "str" },
+            getGeographiesByGeoIdMediaRecent_count: { value: "" },
+            getGeographiesByGeoIdMediaRecent_countType: { value: "str" },
+            getGeographiesByGeoIdMediaRecent_minId: { value: "" },
+            getGeographiesByGeoIdMediaRecent_minIdType: { value: "str" },
+            getLocationsSearch_distance: { value: "" },
+            getLocationsSearch_distanceType: { value: "str" },
+            getLocationsSearch_facebookPlacesId: { value: "" },
+            getLocationsSearch_facebookPlacesIdType: { value: "str" },
+            getLocationsSearch_foursquareId: { value: "" },
+            getLocationsSearch_foursquareIdType: { value: "str" },
+            getLocationsSearch_lat: { value: "" },
+            getLocationsSearch_latType: { value: "str" },
+            getLocationsSearch_lng: { value: "" },
+            getLocationsSearch_lngType: { value: "str" },
+            getLocationsSearch_foursquareV2Id: { value: "" },
+            getLocationsSearch_foursquareV2IdType: { value: "str" },
+            getLocationsByLocationId_locationId: { value: "" },
+            getLocationsByLocationId_locationIdType: { value: "str" },
+            getLocationsByLocationIdMediaRecent_locationId: { value: "" },
+            getLocationsByLocationIdMediaRecent_locationIdType: { value: "str" },
+            getLocationsByLocationIdMediaRecent_minTimestamp: { value: "" },
+            getLocationsByLocationIdMediaRecent_minTimestampType: { value: "str" },
+            getLocationsByLocationIdMediaRecent_maxTimestamp: { value: "" },
+            getLocationsByLocationIdMediaRecent_maxTimestampType: { value: "str" },
+            getLocationsByLocationIdMediaRecent_minId: { value: "" },
+            getLocationsByLocationIdMediaRecent_minIdType: { value: "str" },
+            getLocationsByLocationIdMediaRecent_maxId: { value: "" },
+            getLocationsByLocationIdMediaRecent_maxIdType: { value: "str" },
+            getMediaSearch_lat: { value: "" },
+            getMediaSearch_latType: { value: "str" },
+            getMediaSearch_lng: { value: "" },
+            getMediaSearch_lngType: { value: "str" },
+            getMediaSearch_minTimestamp: { value: "" },
+            getMediaSearch_minTimestampType: { value: "str" },
+            getMediaSearch_maxTimestamp: { value: "" },
+            getMediaSearch_maxTimestampType: { value: "str" },
+            getMediaSearch_distance: { value: "" },
+            getMediaSearch_distanceType: { value: "str" },
+            getMediaShortcodeByShortcode_shortcode: { value: "" },
+            getMediaShortcodeByShortcode_shortcodeType: { value: "str" },
+            getMediaByMediaId_mediaId: { value: "" },
+            getMediaByMediaId_mediaIdType: { value: "str" },
+            getMediaByMediaIdComments_mediaId: { value: "" },
+            getMediaByMediaIdComments_mediaIdType: { value: "str" },
+            postMediaByMediaIdComments_mediaId: { value: "" },
+            postMediaByMediaIdComments_mediaIdType: { value: "str" },
+            postMediaByMediaIdComments_text: { value: "" },
+            postMediaByMediaIdComments_textType: { value: "str" },
+            deleteMediaByMediaIdCommentsByCommentId_mediaId: { value: "" },
+            deleteMediaByMediaIdCommentsByCommentId_mediaIdType: { value: "str" },
+            deleteMediaByMediaIdCommentsByCommentId_commentId: { value: "" },
+            deleteMediaByMediaIdCommentsByCommentId_commentIdType: { value: "str" },
+            deleteMediaByMediaIdLikes_mediaId: { value: "" },
+            deleteMediaByMediaIdLikes_mediaIdType: { value: "str" },
+            getMediaByMediaIdLikes_mediaId: { value: "" },
+            getMediaByMediaIdLikes_mediaIdType: { value: "str" },
+            postMediaByMediaIdLikes_mediaId: { value: "" },
+            postMediaByMediaIdLikes_mediaIdType: { value: "str" },
+            getTagsSearch_q: { value: "" },
+            getTagsSearch_qType: { value: "str" },
+            getTagsByTagName_tagName: { value: "" },
+            getTagsByTagName_tagNameType: { value: "str" },
+            getTagsByTagNameMediaRecent_tagName: { value: "" },
+            getTagsByTagNameMediaRecent_tagNameType: { value: "str" },
+            getTagsByTagNameMediaRecent_count: { value: "" },
+            getTagsByTagNameMediaRecent_countType: { value: "str" },
+            getTagsByTagNameMediaRecent_minTagId: { value: "" },
+            getTagsByTagNameMediaRecent_minTagIdType: { value: "str" },
+            getTagsByTagNameMediaRecent_maxTagId: { value: "" },
+            getTagsByTagNameMediaRecent_maxTagIdType: { value: "str" },
+            getUsersSearch_q: { value: "" },
+            getUsersSearch_qType: { value: "str" },
+            getUsersSearch_count: { value: "" },
+            getUsersSearch_countType: { value: "str" },
+            getUsersSelfFeed_count: { value: "" },
+            getUsersSelfFeed_countType: { value: "str" },
+            getUsersSelfFeed_minId: { value: "" },
+            getUsersSelfFeed_minIdType: { value: "str" },
+            getUsersSelfFeed_maxId: { value: "" },
+            getUsersSelfFeed_maxIdType: { value: "str" },
+            getUsersSelfMediaLiked_count: { value: "" },
+            getUsersSelfMediaLiked_countType: { value: "str" },
+            getUsersSelfMediaLiked_maxLikeId: { value: "" },
+            getUsersSelfMediaLiked_maxLikeIdType: { value: "str" },
+            getUsersByUserId_userId: { value: "" },
+            getUsersByUserId_userIdType: { value: "str" },
+            getUsersByUserIdFollowedBy_userId: { value: "" },
+            getUsersByUserIdFollowedBy_userIdType: { value: "str" },
+            getUsersByUserIdFollows_userId: { value: "" },
+            getUsersByUserIdFollows_userIdType: { value: "str" },
+            getUsersByUserIdMediaRecent_userId: { value: "" },
+            getUsersByUserIdMediaRecent_userIdType: { value: "str" },
+            getUsersByUserIdMediaRecent_count: { value: "" },
+            getUsersByUserIdMediaRecent_countType: { value: "str" },
+            getUsersByUserIdMediaRecent_maxTimestamp: { value: "" },
+            getUsersByUserIdMediaRecent_maxTimestampType: { value: "str" },
+            getUsersByUserIdMediaRecent_minTimestamp: { value: "" },
+            getUsersByUserIdMediaRecent_minTimestampType: { value: "str" },
+            getUsersByUserIdMediaRecent_minId: { value: "" },
+            getUsersByUserIdMediaRecent_minIdType: { value: "str" },
+            getUsersByUserIdMediaRecent_maxId: { value: "" },
+            getUsersByUserIdMediaRecent_maxIdType: { value: "str" },
+            getUsersByUserIdRelationship_userId: { value: "" },
+            getUsersByUserIdRelationship_userIdType: { value: "str" },
+            postUsersByUserIdRelationship_userId: { value: "" },
+            postUsersByUserIdRelationship_userIdType: { value: "str" },
+            postUsersByUserIdRelationship_action: { value: "" },
+            postUsersByUserIdRelationship_actionType: { value: "str" },
+            name: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'icon.png',
+        label: function () {
+            return this.name || "eksido-instagram";
+        },
+        oneditprepare: function () {
+            var selectedMethod = $('#node-input-method option:selected');
+            if (!selectedMethod.val()) {
+                var methods = $('#node-input-method').children();
+                var firstMethod = methods.first();
+                $('#node-input-method').val(firstMethod.val());
+            }
+
+            var showParameters = function () {
+
+                $("#node-input-getGeographiesByGeoIdMediaRecent_geoId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getGeographiesByGeoIdMediaRecent_geoIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getGeographiesByGeoIdMediaRecent_geoId").hide();
+
+                $("#node-input-getGeographiesByGeoIdMediaRecent_count").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getGeographiesByGeoIdMediaRecent_countType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getGeographiesByGeoIdMediaRecent_count").hide();
+
+                $("#node-input-getGeographiesByGeoIdMediaRecent_minId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getGeographiesByGeoIdMediaRecent_minIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getGeographiesByGeoIdMediaRecent_minId").hide();
+
+                $("#node-input-getLocationsSearch_distance").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsSearch_distanceType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsSearch_distance").hide();
+
+                $("#node-input-getLocationsSearch_facebookPlacesId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsSearch_facebookPlacesIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsSearch_facebookPlacesId").hide();
+
+                $("#node-input-getLocationsSearch_foursquareId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsSearch_foursquareIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsSearch_foursquareId").hide();
+
+                $("#node-input-getLocationsSearch_lat").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsSearch_latType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsSearch_lat").hide();
+
+                $("#node-input-getLocationsSearch_lng").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsSearch_lngType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsSearch_lng").hide();
+
+                $("#node-input-getLocationsSearch_foursquareV2Id").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsSearch_foursquareV2IdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsSearch_foursquareV2Id").hide();
+
+                $("#node-input-getLocationsByLocationId_locationId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsByLocationId_locationIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsByLocationId_locationId").hide();
+
+                $("#node-input-getLocationsByLocationIdMediaRecent_locationId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsByLocationIdMediaRecent_locationIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsByLocationIdMediaRecent_locationId").hide();
+
+                $("#node-input-getLocationsByLocationIdMediaRecent_minTimestamp").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsByLocationIdMediaRecent_minTimestampType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsByLocationIdMediaRecent_minTimestamp").hide();
+
+                $("#node-input-getLocationsByLocationIdMediaRecent_maxTimestamp").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsByLocationIdMediaRecent_maxTimestampType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsByLocationIdMediaRecent_maxTimestamp").hide();
+
+                $("#node-input-getLocationsByLocationIdMediaRecent_minId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsByLocationIdMediaRecent_minIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsByLocationIdMediaRecent_minId").hide();
+
+                $("#node-input-getLocationsByLocationIdMediaRecent_maxId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getLocationsByLocationIdMediaRecent_maxIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getLocationsByLocationIdMediaRecent_maxId").hide();
+
+                $("#node-input-getMediaSearch_lat").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaSearch_latType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaSearch_lat").hide();
+
+                $("#node-input-getMediaSearch_lng").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaSearch_lngType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaSearch_lng").hide();
+
+                $("#node-input-getMediaSearch_minTimestamp").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaSearch_minTimestampType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaSearch_minTimestamp").hide();
+
+                $("#node-input-getMediaSearch_maxTimestamp").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaSearch_maxTimestampType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaSearch_maxTimestamp").hide();
+
+                $("#node-input-getMediaSearch_distance").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaSearch_distanceType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaSearch_distance").hide();
+
+                $("#node-input-getMediaShortcodeByShortcode_shortcode").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaShortcodeByShortcode_shortcodeType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaShortcodeByShortcode_shortcode").hide();
+
+                $("#node-input-getMediaByMediaId_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaByMediaId_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaByMediaId_mediaId").hide();
+
+                $("#node-input-getMediaByMediaIdComments_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaByMediaIdComments_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaByMediaIdComments_mediaId").hide();
+
+                $("#node-input-postMediaByMediaIdComments_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postMediaByMediaIdComments_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postMediaByMediaIdComments_mediaId").hide();
+
+                $("#node-input-postMediaByMediaIdComments_text").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postMediaByMediaIdComments_textType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postMediaByMediaIdComments_text").hide();
+
+                $("#node-input-deleteMediaByMediaIdCommentsByCommentId_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteMediaByMediaIdCommentsByCommentId_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteMediaByMediaIdCommentsByCommentId_mediaId").hide();
+
+                $("#node-input-deleteMediaByMediaIdCommentsByCommentId_commentId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteMediaByMediaIdCommentsByCommentId_commentIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteMediaByMediaIdCommentsByCommentId_commentId").hide();
+
+                $("#node-input-deleteMediaByMediaIdLikes_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deleteMediaByMediaIdLikes_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deleteMediaByMediaIdLikes_mediaId").hide();
+
+                $("#node-input-getMediaByMediaIdLikes_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getMediaByMediaIdLikes_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getMediaByMediaIdLikes_mediaId").hide();
+
+                $("#node-input-postMediaByMediaIdLikes_mediaId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postMediaByMediaIdLikes_mediaIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postMediaByMediaIdLikes_mediaId").hide();
+
+                $("#node-input-getTagsSearch_q").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getTagsSearch_qType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getTagsSearch_q").hide();
+
+                $("#node-input-getTagsByTagName_tagName").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getTagsByTagName_tagNameType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getTagsByTagName_tagName").hide();
+
+                $("#node-input-getTagsByTagNameMediaRecent_tagName").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getTagsByTagNameMediaRecent_tagNameType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getTagsByTagNameMediaRecent_tagName").hide();
+
+                $("#node-input-getTagsByTagNameMediaRecent_count").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getTagsByTagNameMediaRecent_countType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getTagsByTagNameMediaRecent_count").hide();
+
+                $("#node-input-getTagsByTagNameMediaRecent_minTagId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getTagsByTagNameMediaRecent_minTagIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getTagsByTagNameMediaRecent_minTagId").hide();
+
+                $("#node-input-getTagsByTagNameMediaRecent_maxTagId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getTagsByTagNameMediaRecent_maxTagIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getTagsByTagNameMediaRecent_maxTagId").hide();
+
+                $("#node-input-getUsersSearch_q").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSearch_qType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSearch_q").hide();
+
+                $("#node-input-getUsersSearch_count").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSearch_countType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSearch_count").hide();
+
+                $("#node-input-getUsersSelfFeed_count").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSelfFeed_countType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSelfFeed_count").hide();
+
+                $("#node-input-getUsersSelfFeed_minId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSelfFeed_minIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSelfFeed_minId").hide();
+
+                $("#node-input-getUsersSelfFeed_maxId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSelfFeed_maxIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSelfFeed_maxId").hide();
+
+                $("#node-input-getUsersSelfMediaLiked_count").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSelfMediaLiked_countType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSelfMediaLiked_count").hide();
+
+                $("#node-input-getUsersSelfMediaLiked_maxLikeId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersSelfMediaLiked_maxLikeIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersSelfMediaLiked_maxLikeId").hide();
+
+                $("#node-input-getUsersByUserId_userId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserId_userIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserId_userId").hide();
+
+                $("#node-input-getUsersByUserIdFollowedBy_userId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdFollowedBy_userIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdFollowedBy_userId").hide();
+
+                $("#node-input-getUsersByUserIdFollows_userId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdFollows_userIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdFollows_userId").hide();
+
+                $("#node-input-getUsersByUserIdMediaRecent_userId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdMediaRecent_userIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdMediaRecent_userId").hide();
+
+                $("#node-input-getUsersByUserIdMediaRecent_count").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdMediaRecent_countType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdMediaRecent_count").hide();
+
+                $("#node-input-getUsersByUserIdMediaRecent_maxTimestamp").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdMediaRecent_maxTimestampType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdMediaRecent_maxTimestamp").hide();
+
+                $("#node-input-getUsersByUserIdMediaRecent_minTimestamp").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdMediaRecent_minTimestampType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdMediaRecent_minTimestamp").hide();
+
+                $("#node-input-getUsersByUserIdMediaRecent_minId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdMediaRecent_minIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdMediaRecent_minId").hide();
+
+                $("#node-input-getUsersByUserIdMediaRecent_maxId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdMediaRecent_maxIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdMediaRecent_maxId").hide();
+
+                $("#node-input-getUsersByUserIdRelationship_userId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getUsersByUserIdRelationship_userIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getUsersByUserIdRelationship_userId").hide();
+
+                $("#node-input-postUsersByUserIdRelationship_userId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-postUsersByUserIdRelationship_userIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#postUsersByUserIdRelationship_userId").hide();
+
+
+                $("#postUsersByUserIdRelationship_action").hide();
+
+                $("#optional-parameters").hide();
+                $("#optional-parameters-label").hide();
+                if ($("#node-input-method").val() === 'getGeographiesByGeoIdMediaRecent') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getLocationsSearch') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getLocationsByLocationId') {
+
+                }
+                if ($("#node-input-method").val() === 'getLocationsByLocationIdMediaRecent') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getMediaPopular') {
+
+                }
+                if ($("#node-input-method").val() === 'getMediaSearch') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getMediaShortcodeByShortcode') {
+
+                }
+                if ($("#node-input-method").val() === 'getMediaByMediaId') {
+
+                }
+                if ($("#node-input-method").val() === 'getMediaByMediaIdComments') {
+
+                }
+                if ($("#node-input-method").val() === 'postMediaByMediaIdComments') {
+
+                }
+                if ($("#node-input-method").val() === 'deleteMediaByMediaIdCommentsByCommentId') {
+
+                }
+                if ($("#node-input-method").val() === 'deleteMediaByMediaIdLikes') {
+
+                }
+                if ($("#node-input-method").val() === 'getMediaByMediaIdLikes') {
+
+                }
+                if ($("#node-input-method").val() === 'postMediaByMediaIdLikes') {
+
+                }
+                if ($("#node-input-method").val() === 'getTagsSearch') {
+
+                }
+                if ($("#node-input-method").val() === 'getTagsByTagName') {
+
+                }
+                if ($("#node-input-method").val() === 'getTagsByTagNameMediaRecent') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getUsersSearch') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getUsersSelfFeed') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getUsersSelfMediaLiked') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getUsersSelfRequestedBy') {
+
+                }
+                if ($("#node-input-method").val() === 'getUsersByUserId') {
+
+                }
+                if ($("#node-input-method").val() === 'getUsersByUserIdFollowedBy') {
+
+                }
+                if ($("#node-input-method").val() === 'getUsersByUserIdFollows') {
+
+                }
+                if ($("#node-input-method").val() === 'getUsersByUserIdMediaRecent') {
+
+                    $("#optional-parameters").show();
+                    $("#optional-parameters-label").show();
+                    
+                }
+                if ($("#node-input-method").val() === 'getUsersByUserIdRelationship') {
+
+                }
+                if ($("#node-input-method").val() === 'postUsersByUserIdRelationship') {
+
+                }
+
+                if ($("#optional-parameters").prop('checked')) {
+                    if ($("#node-input-method").val() === 'getGeographiesByGeoIdMediaRecent') {
+
+                        $("#getGeographiesByGeoIdMediaRecent_geoId").show();
+                        
+                        $("#getGeographiesByGeoIdMediaRecent_count").show();
+                        
+                        $("#getGeographiesByGeoIdMediaRecent_minId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getLocationsSearch') {
+
+                        $("#getLocationsSearch_distance").show();
+                        
+                        $("#getLocationsSearch_facebookPlacesId").show();
+                        
+                        $("#getLocationsSearch_foursquareId").show();
+                        
+                        $("#getLocationsSearch_lat").show();
+                        
+                        $("#getLocationsSearch_lng").show();
+                        
+                        $("#getLocationsSearch_foursquareV2Id").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getLocationsByLocationId') {
+
+                        $("#getLocationsByLocationId_locationId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getLocationsByLocationIdMediaRecent') {
+
+                        $("#getLocationsByLocationIdMediaRecent_locationId").show();
+                        
+                        $("#getLocationsByLocationIdMediaRecent_minTimestamp").show();
+                        
+                        $("#getLocationsByLocationIdMediaRecent_maxTimestamp").show();
+                        
+                        $("#getLocationsByLocationIdMediaRecent_minId").show();
+                        
+                        $("#getLocationsByLocationIdMediaRecent_maxId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaPopular') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getMediaSearch') {
+
+                        $("#getMediaSearch_lat").show();
+                        
+                        $("#getMediaSearch_lng").show();
+                        
+                        $("#getMediaSearch_minTimestamp").show();
+                        
+                        $("#getMediaSearch_maxTimestamp").show();
+                        
+                        $("#getMediaSearch_distance").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaShortcodeByShortcode') {
+
+                        $("#getMediaShortcodeByShortcode_shortcode").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaByMediaId') {
+
+                        $("#getMediaByMediaId_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaByMediaIdComments') {
+
+                        $("#getMediaByMediaIdComments_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postMediaByMediaIdComments') {
+
+                        $("#postMediaByMediaIdComments_mediaId").show();
+                        
+                        $("#postMediaByMediaIdComments_text").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteMediaByMediaIdCommentsByCommentId') {
+
+                        $("#deleteMediaByMediaIdCommentsByCommentId_mediaId").show();
+                        
+                        $("#deleteMediaByMediaIdCommentsByCommentId_commentId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteMediaByMediaIdLikes') {
+
+                        $("#deleteMediaByMediaIdLikes_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaByMediaIdLikes') {
+
+                        $("#getMediaByMediaIdLikes_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postMediaByMediaIdLikes') {
+
+                        $("#postMediaByMediaIdLikes_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getTagsSearch') {
+
+                        $("#getTagsSearch_q").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getTagsByTagName') {
+
+                        $("#getTagsByTagName_tagName").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getTagsByTagNameMediaRecent') {
+
+                        $("#getTagsByTagNameMediaRecent_tagName").show();
+                        
+                        $("#getTagsByTagNameMediaRecent_count").show();
+                        
+                        $("#getTagsByTagNameMediaRecent_minTagId").show();
+                        
+                        $("#getTagsByTagNameMediaRecent_maxTagId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSearch') {
+
+                        $("#getUsersSearch_q").show();
+                        
+                        $("#getUsersSearch_count").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSelfFeed') {
+
+                        $("#getUsersSelfFeed_count").show();
+                        
+                        $("#getUsersSelfFeed_minId").show();
+                        
+                        $("#getUsersSelfFeed_maxId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSelfMediaLiked') {
+
+                        $("#getUsersSelfMediaLiked_count").show();
+                        
+                        $("#getUsersSelfMediaLiked_maxLikeId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSelfRequestedBy') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserId') {
+
+                        $("#getUsersByUserId_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdFollowedBy') {
+
+                        $("#getUsersByUserIdFollowedBy_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdFollows') {
+
+                        $("#getUsersByUserIdFollows_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdMediaRecent') {
+
+                        $("#getUsersByUserIdMediaRecent_userId").show();
+                        
+                        $("#getUsersByUserIdMediaRecent_count").show();
+                        
+                        $("#getUsersByUserIdMediaRecent_maxTimestamp").show();
+                        
+                        $("#getUsersByUserIdMediaRecent_minTimestamp").show();
+                        
+                        $("#getUsersByUserIdMediaRecent_minId").show();
+                        
+                        $("#getUsersByUserIdMediaRecent_maxId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdRelationship') {
+
+                        $("#getUsersByUserIdRelationship_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postUsersByUserIdRelationship') {
+
+                        $("#postUsersByUserIdRelationship_userId").show();
+                        
+                        $("#postUsersByUserIdRelationship_action").show();
+                        
+                    }
+                } else {
+                    if ($("#node-input-method").val() === 'getGeographiesByGeoIdMediaRecent') {
+
+                        $("#getGeographiesByGeoIdMediaRecent_geoId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getLocationsSearch') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getLocationsByLocationId') {
+
+                        $("#getLocationsByLocationId_locationId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getLocationsByLocationIdMediaRecent') {
+
+                        $("#getLocationsByLocationIdMediaRecent_locationId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaPopular') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getMediaSearch') {
+
+                        $("#getMediaSearch_lat").show();
+                        
+                        $("#getMediaSearch_lng").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaShortcodeByShortcode') {
+
+                        $("#getMediaShortcodeByShortcode_shortcode").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaByMediaId') {
+
+                        $("#getMediaByMediaId_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaByMediaIdComments') {
+
+                        $("#getMediaByMediaIdComments_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postMediaByMediaIdComments') {
+
+                        $("#postMediaByMediaIdComments_mediaId").show();
+                        
+                        $("#postMediaByMediaIdComments_text").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteMediaByMediaIdCommentsByCommentId') {
+
+                        $("#deleteMediaByMediaIdCommentsByCommentId_mediaId").show();
+                        
+                        $("#deleteMediaByMediaIdCommentsByCommentId_commentId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deleteMediaByMediaIdLikes') {
+
+                        $("#deleteMediaByMediaIdLikes_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getMediaByMediaIdLikes') {
+
+                        $("#getMediaByMediaIdLikes_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postMediaByMediaIdLikes') {
+
+                        $("#postMediaByMediaIdLikes_mediaId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getTagsSearch') {
+
+                        $("#getTagsSearch_q").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getTagsByTagName') {
+
+                        $("#getTagsByTagName_tagName").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getTagsByTagNameMediaRecent') {
+
+                        $("#getTagsByTagNameMediaRecent_tagName").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSearch') {
+
+                        $("#getUsersSearch_q").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSelfFeed') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSelfMediaLiked') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getUsersSelfRequestedBy') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserId') {
+
+                        $("#getUsersByUserId_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdFollowedBy') {
+
+                        $("#getUsersByUserIdFollowedBy_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdFollows') {
+
+                        $("#getUsersByUserIdFollows_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdMediaRecent') {
+
+                        $("#getUsersByUserIdMediaRecent_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'getUsersByUserIdRelationship') {
+
+                        $("#getUsersByUserIdRelationship_userId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'postUsersByUserIdRelationship') {
+
+                        $("#postUsersByUserIdRelationship_userId").show();
+                        
+                        $("#postUsersByUserIdRelationship_action").show();
+                        
+                    }
+                }
+            };
+
+            $("#node-input-method").change(function () {
+                showParameters();
+            });
+
+            $("#optional-parameters").change(function () {
+                showParameters();
+            });
+
+            var selected_postUsersByUserIdRelationship_action = $('#node-input-postUsersByUserIdRelationship_action option:selected');
+            if (!selected_postUsersByUserIdRelationship_action.val()) {
+                var children_postUsersByUserIdRelationship_action = $('#node-input-postUsersByUserIdRelationship_action').children();
+                var first_postUsersByUserIdRelationship_action = children_postUsersByUserIdRelationship_action.first();
+                $('#node-input-postUsersByUserIdRelationship_action').val(first_postUsersByUserIdRelationship_action.val());
+            }
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="eksido-instagram">
+    <div class="form-row">
+        <label for="node-input-service"><i class="fa fa-cloud"></i> <span data-i18n="Instagram.label.service"></span></label>
+        <input type="text" id="node-input-service">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-method"><i class="icon-tasks"></i> <span data-i18n="Instagram.label.method"></span></label>
+        <select id="node-input-method">
+            <option value="getGeographiesByGeoIdMediaRecent" data-i18n="Instagram.parameters.getGeographiesByGeoIdMediaRecent"></option>
+            <option value="getLocationsSearch" data-i18n="Instagram.parameters.getLocationsSearch"></option>
+            <option value="getLocationsByLocationId" data-i18n="Instagram.parameters.getLocationsByLocationId"></option>
+            <option value="getLocationsByLocationIdMediaRecent" data-i18n="Instagram.parameters.getLocationsByLocationIdMediaRecent"></option>
+            <option value="getMediaPopular" data-i18n="Instagram.parameters.getMediaPopular"></option>
+            <option value="getMediaSearch" data-i18n="Instagram.parameters.getMediaSearch"></option>
+            <option value="getMediaShortcodeByShortcode" data-i18n="Instagram.parameters.getMediaShortcodeByShortcode"></option>
+            <option value="getMediaByMediaId" data-i18n="Instagram.parameters.getMediaByMediaId"></option>
+            <option value="getMediaByMediaIdComments" data-i18n="Instagram.parameters.getMediaByMediaIdComments"></option>
+            <option value="postMediaByMediaIdComments" data-i18n="Instagram.parameters.postMediaByMediaIdComments"></option>
+            <option value="deleteMediaByMediaIdCommentsByCommentId" data-i18n="Instagram.parameters.deleteMediaByMediaIdCommentsByCommentId"></option>
+            <option value="deleteMediaByMediaIdLikes" data-i18n="Instagram.parameters.deleteMediaByMediaIdLikes"></option>
+            <option value="getMediaByMediaIdLikes" data-i18n="Instagram.parameters.getMediaByMediaIdLikes"></option>
+            <option value="postMediaByMediaIdLikes" data-i18n="Instagram.parameters.postMediaByMediaIdLikes"></option>
+            <option value="getTagsSearch" data-i18n="Instagram.parameters.getTagsSearch"></option>
+            <option value="getTagsByTagName" data-i18n="Instagram.parameters.getTagsByTagName"></option>
+            <option value="getTagsByTagNameMediaRecent" data-i18n="Instagram.parameters.getTagsByTagNameMediaRecent"></option>
+            <option value="getUsersSearch" data-i18n="Instagram.parameters.getUsersSearch"></option>
+            <option value="getUsersSelfFeed" data-i18n="Instagram.parameters.getUsersSelfFeed"></option>
+            <option value="getUsersSelfMediaLiked" data-i18n="Instagram.parameters.getUsersSelfMediaLiked"></option>
+            <option value="getUsersSelfRequestedBy" data-i18n="Instagram.parameters.getUsersSelfRequestedBy"></option>
+            <option value="getUsersByUserId" data-i18n="Instagram.parameters.getUsersByUserId"></option>
+            <option value="getUsersByUserIdFollowedBy" data-i18n="Instagram.parameters.getUsersByUserIdFollowedBy"></option>
+            <option value="getUsersByUserIdFollows" data-i18n="Instagram.parameters.getUsersByUserIdFollows"></option>
+            <option value="getUsersByUserIdMediaRecent" data-i18n="Instagram.parameters.getUsersByUserIdMediaRecent"></option>
+            <option value="getUsersByUserIdRelationship" data-i18n="Instagram.parameters.getUsersByUserIdRelationship"></option>
+            <option value="postUsersByUserIdRelationship" data-i18n="Instagram.parameters.postUsersByUserIdRelationship"></option>
+        </select>
+        &nbsp;
+        <input type="checkbox" id="optional-parameters" style="margin-left: 10px; vertical-align: text-bottom; width: auto;">
+        <label for="optional-parameters" id="optional-parameters-label" style="width: auto;"> <span data-i18n="Instagram.parameters.optionalParameters"></span></label>
+    </div>
+
+    <div class="form-row" id="getGeographiesByGeoIdMediaRecent_geoId">
+        <label for="node-input-getGeographiesByGeoIdMediaRecent_geoId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.geoId"></span></label>
+
+        <input type="text" id="node-input-getGeographiesByGeoIdMediaRecent_geoId" placeholder="The geography ID." style="width:70%">
+        <input type="hidden" id="node-input-getGeographiesByGeoIdMediaRecent_geoIdType">
+    </div>
+
+    <div class="form-row" id="getGeographiesByGeoIdMediaRecent_count">
+        <label for="node-input-getGeographiesByGeoIdMediaRecent_count"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.count"></span></label>
+
+        <input type="text" id="node-input-getGeographiesByGeoIdMediaRecent_count" placeholder="Max number of media to return." style="width:70%">
+        <input type="hidden" id="node-input-getGeographiesByGeoIdMediaRecent_countType">
+    </div>
+
+    <div class="form-row" id="getGeographiesByGeoIdMediaRecent_minId">
+        <label for="node-input-getGeographiesByGeoIdMediaRecent_minId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minId"></span></label>
+
+        <input type="text" id="node-input-getGeographiesByGeoIdMediaRecent_minId" placeholder="Return media before this `min_id`." style="width:70%">
+        <input type="hidden" id="node-input-getGeographiesByGeoIdMediaRecent_minIdType">
+    </div>
+
+    <div class="form-row" id="getLocationsSearch_distance">
+        <label for="node-input-getLocationsSearch_distance"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.distance"></span></label>
+
+        <input type="text" id="node-input-getLocationsSearch_distance" placeholder="Default is 1000m (distance=1000), max distance is 5000." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsSearch_distanceType">
+    </div>
+
+    <div class="form-row" id="getLocationsSearch_facebookPlacesId">
+        <label for="node-input-getLocationsSearch_facebookPlacesId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.facebookPlacesId"></span></label>
+
+        <input type="text" id="node-input-getLocationsSearch_facebookPlacesId" placeholder="Returns a location mapped off of a Facebook places id. If used, a Foursquare id and `lat`, `lng` are not required." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsSearch_facebookPlacesIdType">
+    </div>
+
+    <div class="form-row" id="getLocationsSearch_foursquareId">
+        <label for="node-input-getLocationsSearch_foursquareId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.foursquareId"></span></label>
+
+        <input type="text" id="node-input-getLocationsSearch_foursquareId" placeholder="Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use
+`lat` and `lng`. Note that this method is deprecated; you should use the new foursquare IDs with V2 of their API.
+" style="width:70%">
+        <input type="hidden" id="node-input-getLocationsSearch_foursquareIdType">
+    </div>
+
+    <div class="form-row" id="getLocationsSearch_lat">
+        <label for="node-input-getLocationsSearch_lat"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.lat"></span></label>
+
+        <input type="text" id="node-input-getLocationsSearch_lat" placeholder="Latitude of the center search coordinate. If used, `lng` is required." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsSearch_latType">
+    </div>
+
+    <div class="form-row" id="getLocationsSearch_lng">
+        <label for="node-input-getLocationsSearch_lng"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.lng"></span></label>
+
+        <input type="text" id="node-input-getLocationsSearch_lng" placeholder="Longitude of the center search coordinate. If used, `lat` is required." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsSearch_lngType">
+    </div>
+
+    <div class="form-row" id="getLocationsSearch_foursquareV2Id">
+        <label for="node-input-getLocationsSearch_foursquareV2Id"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.foursquareV2Id"></span></label>
+
+        <input type="text" id="node-input-getLocationsSearch_foursquareV2Id" placeholder="Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use
+`lat` and `lng`.
+" style="width:70%">
+        <input type="hidden" id="node-input-getLocationsSearch_foursquareV2IdType">
+    </div>
+
+    <div class="form-row" id="getLocationsByLocationId_locationId">
+        <label for="node-input-getLocationsByLocationId_locationId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.locationId"></span></label>
+
+        <input type="text" id="node-input-getLocationsByLocationId_locationId" placeholder="The location ID." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsByLocationId_locationIdType">
+    </div>
+
+    <div class="form-row" id="getLocationsByLocationIdMediaRecent_locationId">
+        <label for="node-input-getLocationsByLocationIdMediaRecent_locationId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.locationId"></span></label>
+
+        <input type="text" id="node-input-getLocationsByLocationIdMediaRecent_locationId" placeholder="The location ID." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsByLocationIdMediaRecent_locationIdType">
+    </div>
+
+    <div class="form-row" id="getLocationsByLocationIdMediaRecent_minTimestamp">
+        <label for="node-input-getLocationsByLocationIdMediaRecent_minTimestamp"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minTimestamp"></span></label>
+
+        <input type="text" id="node-input-getLocationsByLocationIdMediaRecent_minTimestamp" placeholder="Return media after this UNIX timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsByLocationIdMediaRecent_minTimestampType">
+    </div>
+
+    <div class="form-row" id="getLocationsByLocationIdMediaRecent_maxTimestamp">
+        <label for="node-input-getLocationsByLocationIdMediaRecent_maxTimestamp"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxTimestamp"></span></label>
+
+        <input type="text" id="node-input-getLocationsByLocationIdMediaRecent_maxTimestamp" placeholder="Return media before this UNIX timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsByLocationIdMediaRecent_maxTimestampType">
+    </div>
+
+    <div class="form-row" id="getLocationsByLocationIdMediaRecent_minId">
+        <label for="node-input-getLocationsByLocationIdMediaRecent_minId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minId"></span></label>
+
+        <input type="text" id="node-input-getLocationsByLocationIdMediaRecent_minId" placeholder="Return media before this `min_id`." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsByLocationIdMediaRecent_minIdType">
+    </div>
+
+    <div class="form-row" id="getLocationsByLocationIdMediaRecent_maxId">
+        <label for="node-input-getLocationsByLocationIdMediaRecent_maxId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxId"></span></label>
+
+        <input type="text" id="node-input-getLocationsByLocationIdMediaRecent_maxId" placeholder="Return media after this `max_id`." style="width:70%">
+        <input type="hidden" id="node-input-getLocationsByLocationIdMediaRecent_maxIdType">
+    </div>
+
+    <div class="form-row" id="getMediaSearch_lat">
+        <label for="node-input-getMediaSearch_lat"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.lat"></span></label>
+
+        <input type="text" id="node-input-getMediaSearch_lat" placeholder="Latitude of the center search coordinate. If used, `lng` is required." style="width:70%">
+        <input type="hidden" id="node-input-getMediaSearch_latType">
+    </div>
+
+    <div class="form-row" id="getMediaSearch_lng">
+        <label for="node-input-getMediaSearch_lng"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.lng"></span></label>
+
+        <input type="text" id="node-input-getMediaSearch_lng" placeholder="Longitude of the center search coordinate. If used, `lat` is required." style="width:70%">
+        <input type="hidden" id="node-input-getMediaSearch_lngType">
+    </div>
+
+    <div class="form-row" id="getMediaSearch_minTimestamp">
+        <label for="node-input-getMediaSearch_minTimestamp"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minTimestamp"></span></label>
+
+        <input type="text" id="node-input-getMediaSearch_minTimestamp" placeholder="A unix timestamp. All media returned will be taken later than this timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getMediaSearch_minTimestampType">
+    </div>
+
+    <div class="form-row" id="getMediaSearch_maxTimestamp">
+        <label for="node-input-getMediaSearch_maxTimestamp"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxTimestamp"></span></label>
+
+        <input type="text" id="node-input-getMediaSearch_maxTimestamp" placeholder="A unix timestamp. All media returned will be taken earlier than this timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getMediaSearch_maxTimestampType">
+    </div>
+
+    <div class="form-row" id="getMediaSearch_distance">
+        <label for="node-input-getMediaSearch_distance"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.distance"></span></label>
+
+        <input type="text" id="node-input-getMediaSearch_distance" placeholder="Default is 1km (distance=1000), max distance is 5km." style="width:70%">
+        <input type="hidden" id="node-input-getMediaSearch_distanceType">
+    </div>
+
+    <div class="form-row" id="getMediaShortcodeByShortcode_shortcode">
+        <label for="node-input-getMediaShortcodeByShortcode_shortcode"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.shortcode"></span></label>
+
+        <input type="text" id="node-input-getMediaShortcodeByShortcode_shortcode" placeholder="The short code of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-getMediaShortcodeByShortcode_shortcodeType">
+    </div>
+
+    <div class="form-row" id="getMediaByMediaId_mediaId">
+        <label for="node-input-getMediaByMediaId_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-getMediaByMediaId_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-getMediaByMediaId_mediaIdType">
+    </div>
+
+    <div class="form-row" id="getMediaByMediaIdComments_mediaId">
+        <label for="node-input-getMediaByMediaIdComments_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-getMediaByMediaIdComments_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-getMediaByMediaIdComments_mediaIdType">
+    </div>
+
+    <div class="form-row" id="postMediaByMediaIdComments_mediaId">
+        <label for="node-input-postMediaByMediaIdComments_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-postMediaByMediaIdComments_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-postMediaByMediaIdComments_mediaIdType">
+    </div>
+
+    <div class="form-row" id="postMediaByMediaIdComments_text">
+        <label for="node-input-postMediaByMediaIdComments_text"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.text"></span></label>
+
+        <input type="text" id="node-input-postMediaByMediaIdComments_text" placeholder="Text to post as a comment on the media object as specified in `media-id`." style="width:70%">
+        <input type="hidden" id="node-input-postMediaByMediaIdComments_textType">
+    </div>
+
+    <div class="form-row" id="deleteMediaByMediaIdCommentsByCommentId_mediaId">
+        <label for="node-input-deleteMediaByMediaIdCommentsByCommentId_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-deleteMediaByMediaIdCommentsByCommentId_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-deleteMediaByMediaIdCommentsByCommentId_mediaIdType">
+    </div>
+
+    <div class="form-row" id="deleteMediaByMediaIdCommentsByCommentId_commentId">
+        <label for="node-input-deleteMediaByMediaIdCommentsByCommentId_commentId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.commentId"></span></label>
+
+        <input type="text" id="node-input-deleteMediaByMediaIdCommentsByCommentId_commentId" placeholder="The ID of the comment entry." style="width:70%">
+        <input type="hidden" id="node-input-deleteMediaByMediaIdCommentsByCommentId_commentIdType">
+    </div>
+
+    <div class="form-row" id="deleteMediaByMediaIdLikes_mediaId">
+        <label for="node-input-deleteMediaByMediaIdLikes_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-deleteMediaByMediaIdLikes_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-deleteMediaByMediaIdLikes_mediaIdType">
+    </div>
+
+    <div class="form-row" id="getMediaByMediaIdLikes_mediaId">
+        <label for="node-input-getMediaByMediaIdLikes_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-getMediaByMediaIdLikes_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-getMediaByMediaIdLikes_mediaIdType">
+    </div>
+
+    <div class="form-row" id="postMediaByMediaIdLikes_mediaId">
+        <label for="node-input-postMediaByMediaIdLikes_mediaId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.mediaId"></span></label>
+
+        <input type="text" id="node-input-postMediaByMediaIdLikes_mediaId" placeholder="The ID of the media resource." style="width:70%">
+        <input type="hidden" id="node-input-postMediaByMediaIdLikes_mediaIdType">
+    </div>
+
+    <div class="form-row" id="getTagsSearch_q">
+        <label for="node-input-getTagsSearch_q"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.q"></span></label>
+
+        <input type="text" id="node-input-getTagsSearch_q" placeholder="A valid tag name without a leading \#. (eg. snowy, nofilter)" style="width:70%">
+        <input type="hidden" id="node-input-getTagsSearch_qType">
+    </div>
+
+    <div class="form-row" id="getTagsByTagName_tagName">
+        <label for="node-input-getTagsByTagName_tagName"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.tagName"></span></label>
+
+        <input type="text" id="node-input-getTagsByTagName_tagName" placeholder="The tag name." style="width:70%">
+        <input type="hidden" id="node-input-getTagsByTagName_tagNameType">
+    </div>
+
+    <div class="form-row" id="getTagsByTagNameMediaRecent_tagName">
+        <label for="node-input-getTagsByTagNameMediaRecent_tagName"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.tagName"></span></label>
+
+        <input type="text" id="node-input-getTagsByTagNameMediaRecent_tagName" placeholder="The tag name." style="width:70%">
+        <input type="hidden" id="node-input-getTagsByTagNameMediaRecent_tagNameType">
+    </div>
+
+    <div class="form-row" id="getTagsByTagNameMediaRecent_count">
+        <label for="node-input-getTagsByTagNameMediaRecent_count"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.count"></span></label>
+
+        <input type="text" id="node-input-getTagsByTagNameMediaRecent_count" placeholder="Count of tagged media to return." style="width:70%">
+        <input type="hidden" id="node-input-getTagsByTagNameMediaRecent_countType">
+    </div>
+
+    <div class="form-row" id="getTagsByTagNameMediaRecent_minTagId">
+        <label for="node-input-getTagsByTagNameMediaRecent_minTagId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minTagId"></span></label>
+
+        <input type="text" id="node-input-getTagsByTagNameMediaRecent_minTagId" placeholder="Return media before this `min_tag_id`." style="width:70%">
+        <input type="hidden" id="node-input-getTagsByTagNameMediaRecent_minTagIdType">
+    </div>
+
+    <div class="form-row" id="getTagsByTagNameMediaRecent_maxTagId">
+        <label for="node-input-getTagsByTagNameMediaRecent_maxTagId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxTagId"></span></label>
+
+        <input type="text" id="node-input-getTagsByTagNameMediaRecent_maxTagId" placeholder="Return media after this `max_tag_id`." style="width:70%">
+        <input type="hidden" id="node-input-getTagsByTagNameMediaRecent_maxTagIdType">
+    </div>
+
+    <div class="form-row" id="getUsersSearch_q">
+        <label for="node-input-getUsersSearch_q"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.q"></span></label>
+
+        <input type="text" id="node-input-getUsersSearch_q" placeholder="A query string." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSearch_qType">
+    </div>
+
+    <div class="form-row" id="getUsersSearch_count">
+        <label for="node-input-getUsersSearch_count"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.count"></span></label>
+
+        <input type="text" id="node-input-getUsersSearch_count" placeholder="Number of users to return." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSearch_countType">
+    </div>
+
+    <div class="form-row" id="getUsersSelfFeed_count">
+        <label for="node-input-getUsersSelfFeed_count"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.count"></span></label>
+
+        <input type="text" id="node-input-getUsersSelfFeed_count" placeholder="Count of media to return." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSelfFeed_countType">
+    </div>
+
+    <div class="form-row" id="getUsersSelfFeed_minId">
+        <label for="node-input-getUsersSelfFeed_minId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minId"></span></label>
+
+        <input type="text" id="node-input-getUsersSelfFeed_minId" placeholder="Return media later than this `min_id`." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSelfFeed_minIdType">
+    </div>
+
+    <div class="form-row" id="getUsersSelfFeed_maxId">
+        <label for="node-input-getUsersSelfFeed_maxId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxId"></span></label>
+
+        <input type="text" id="node-input-getUsersSelfFeed_maxId" placeholder="Return media earlier than this `max_id`." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSelfFeed_maxIdType">
+    </div>
+
+    <div class="form-row" id="getUsersSelfMediaLiked_count">
+        <label for="node-input-getUsersSelfMediaLiked_count"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.count"></span></label>
+
+        <input type="text" id="node-input-getUsersSelfMediaLiked_count" placeholder="Count of media to return." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSelfMediaLiked_countType">
+    </div>
+
+    <div class="form-row" id="getUsersSelfMediaLiked_maxLikeId">
+        <label for="node-input-getUsersSelfMediaLiked_maxLikeId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxLikeId"></span></label>
+
+        <input type="text" id="node-input-getUsersSelfMediaLiked_maxLikeId" placeholder="Return media liked before this id." style="width:70%">
+        <input type="hidden" id="node-input-getUsersSelfMediaLiked_maxLikeIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserId_userId">
+        <label for="node-input-getUsersByUserId_userId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.userId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserId_userId" placeholder="The ID of a user to get information about, or **self** to retrieve information about authenticated user." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserId_userIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdFollowedBy_userId">
+        <label for="node-input-getUsersByUserIdFollowedBy_userId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.userId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdFollowedBy_userId" placeholder="The ID of a user, or **self** to retrieve information about authenticated user." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdFollowedBy_userIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdFollows_userId">
+        <label for="node-input-getUsersByUserIdFollows_userId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.userId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdFollows_userId" placeholder="The ID of a user, or **self** to retrieve information about authenticated user." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdFollows_userIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdMediaRecent_userId">
+        <label for="node-input-getUsersByUserIdMediaRecent_userId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.userId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdMediaRecent_userId" placeholder="The ID of a user to get recent media of, or **self** to retrieve media of authenticated user." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdMediaRecent_userIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdMediaRecent_count">
+        <label for="node-input-getUsersByUserIdMediaRecent_count"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.count"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdMediaRecent_count" placeholder="Count of media to return." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdMediaRecent_countType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdMediaRecent_maxTimestamp">
+        <label for="node-input-getUsersByUserIdMediaRecent_maxTimestamp"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxTimestamp"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdMediaRecent_maxTimestamp" placeholder="Return media before this UNIX timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdMediaRecent_maxTimestampType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdMediaRecent_minTimestamp">
+        <label for="node-input-getUsersByUserIdMediaRecent_minTimestamp"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minTimestamp"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdMediaRecent_minTimestamp" placeholder="Return media after this UNIX timestamp." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdMediaRecent_minTimestampType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdMediaRecent_minId">
+        <label for="node-input-getUsersByUserIdMediaRecent_minId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.minId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdMediaRecent_minId" placeholder="Return media later than this `min_id`." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdMediaRecent_minIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdMediaRecent_maxId">
+        <label for="node-input-getUsersByUserIdMediaRecent_maxId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.maxId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdMediaRecent_maxId" placeholder="Return media earlier than this `max_id`." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdMediaRecent_maxIdType">
+    </div>
+
+    <div class="form-row" id="getUsersByUserIdRelationship_userId">
+        <label for="node-input-getUsersByUserIdRelationship_userId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.userId"></span></label>
+
+        <input type="text" id="node-input-getUsersByUserIdRelationship_userId" placeholder="The ID of a user to get information about." style="width:70%">
+        <input type="hidden" id="node-input-getUsersByUserIdRelationship_userIdType">
+    </div>
+
+    <div class="form-row" id="postUsersByUserIdRelationship_userId">
+        <label for="node-input-postUsersByUserIdRelationship_userId"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.userId"></span></label>
+
+        <input type="text" id="node-input-postUsersByUserIdRelationship_userId" placeholder="The ID of the target user." style="width:70%">
+        <input type="hidden" id="node-input-postUsersByUserIdRelationship_userIdType">
+    </div>
+
+    <div class="form-row" id="postUsersByUserIdRelationship_action">
+        <label for="node-input-postUsersByUserIdRelationship_action"><i class="fa fa-list"></i> <span data-i18n="Instagram.parameters.action"></span></label>
+        <select id="node-input-postUsersByUserIdRelationship_action">
+            <option value="follow">follow</option>
+            <option value="unfollow">unfollow</option>
+            <option value="block">block</option>
+            <option value="unblock">unblock</option>
+            <option value="approve">approve</option>
+            <option value="ignore">ignore</option>
+        </select>
+
+    </div>
+
+    <hr/>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="eksido-instagram">
+
+    <p>Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (`POST`, `DELETE`) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the `data` field in `comments` and `likes` nodes.
+
+Last update: 2015-11-28
+</p>
+    <h2>Methods</h2>
+        <h3>getGeographiesByGeoIdMediaRecent</h3>
+        <h4>Get recent media from a geography subscription that you created.
+
+**Note:** You can only access Geographies that were explicitly created by your OAuth client. Check the
+Geography Subscriptions section of the [real-time updates page](https://instagram.com/developer/realtime/).
+When you create a subscription to some geography that you define, you will be returned a unique `geo-id` that
+can be used in this query. To backfill photos from the location covered by this geography, use the
+[media search endpoint](https://instagram.com/developer/endpoints/media/).
+
+**Warning:** [Deprecated](http://instagram.com/developer/changelog/) for Apps created **on or after** Nov 17, 2015
+</h4>
+        <h3>getLocationsSearch</h3>
+        <h4>Search for a location by geographic coordinate.</h4>
+        <h3>getLocationsByLocationId</h3>
+        <h4>Get information about a location.</h4>
+        <h3>getLocationsByLocationIdMediaRecent</h3>
+        <h4>Get a list of recent media objects from a given location.</h4>
+        <h3>getMediaPopular</h3>
+        <h4>Get a list of what media is most popular at the moment. Can return mix of `image` and `video` types.
+
+**Warning:** [Deprecated](http://instagram.com/developer/changelog/) for Apps created **on or after** Nov 17, 2015
+</h4>
+        <h3>getMediaSearch</h3>
+        <h4>Search for media in a given area. The default time span is set to 5 days. The time span must not exceed 7 days.
+Defaults time stamps cover the last 5 days. Can return mix of `image` and `video` types.
+</h4>
+        <h3>getMediaShortcodeByShortcode</h3>
+        <h4>This endpoint returns the same response as `GET /media/{media-id}`.
+
+A media object's shortcode can be found in its shortlink URL. An example shortlink is
+`http://instagram.com/p/D/`, its corresponding shortcode is `D`.
+</h4>
+        <h3>getMediaByMediaId</h3>
+        <h4>Get information about a media object. The returned type key will allow you to differentiate between image and
+video media.
+
+**Note:** if you authenticate with an OAuth Token, you will receive the user_has_liked key which quickly tells
+you whether the current user has liked this media item.
+</h4>
+        <h3>getMediaByMediaIdComments</h3>
+        <h4>Get a list of recent comments on a media object.</h4>
+        <h3>postMediaByMediaIdComments</h3>
+        <h4>Create a comment on a media object with the following rules:
+
+  * The total length of the comment cannot exceed 300 characters.
+  * The comment cannot contain more than 4 hashtags.
+  * The comment cannot contain more than 1 URL.
+  * The comment cannot consist of all capital letters.
+</h4>
+        <h3>deleteMediaByMediaIdCommentsByCommentId</h3>
+        <h4>Remove a comment either on the authenticated user's media object or authored by the authenticated user.
+</h4>
+        <h3>deleteMediaByMediaIdLikes</h3>
+        <h4>Remove a like on this media by the currently authenticated user.</h4>
+        <h3>getMediaByMediaIdLikes</h3>
+        <h4>Get a list of users who have liked this media.</h4>
+        <h3>postMediaByMediaIdLikes</h3>
+        <h4>Set a like on this media by the currently authenticated user.</h4>
+        <h3>getTagsSearch</h3>
+        <h4>Search for tags by name.</h4>
+        <h3>getTagsByTagName</h3>
+        <h4>Get information about a tag object.</h4>
+        <h3>getTagsByTagNameMediaRecent</h3>
+        <h4>Get a list of recently tagged media. Use the `max_tag_id` and `min_tag_id` parameters in the pagination
+response to paginate through these objects.
+</h4>
+        <h3>getUsersSearch</h3>
+        <h4>Search for a user by name.</h4>
+        <h3>getUsersSelfFeed</h3>
+        <h4>See the authenticated user's feed.
+
+**Warning:** [Deprecated](http://instagram.com/developer/changelog/) for Apps created **on or after** Nov 17, 2015
+</h4>
+        <h3>getUsersSelfMediaLiked</h3>
+        <h4>See the list of media liked by the authenticated user. Private media is returned as long as the authenticated
+user has permission to view that media. Liked media lists are only available for the currently authenticated
+user.
+</h4>
+        <h3>getUsersSelfRequestedBy</h3>
+        <h4>List the users who have requested this user's permission to follow.</h4>
+        <h3>getUsersByUserId</h3>
+        <h4>Get basic information about a user. To get information about the owner of the access token, you can use
+**self** instead of the `user-id`.
+
+Security scope `public_content` is required to read information about other users.
+</h4>
+        <h3>getUsersByUserIdFollowedBy</h3>
+        <h4>Get the list of users this user is followed by. To get users followed by the owner of the access token, you
+can use **self** instead of the `user-id`.
+</h4>
+        <h3>getUsersByUserIdFollows</h3>
+        <h4>Get the list of users this user follows. To get follows of the owner of the access token, you can use **self**
+instead of the `user-id`.
+</h4>
+        <h3>getUsersByUserIdMediaRecent</h3>
+        <h4>Get the most recent media published by a user. To get the most recent media published by the owner of the
+access token, you can use **self** instead of the `user-id`.
+
+Security scope `public_content` is required to read information about other users.
+</h4>
+        <h3>getUsersByUserIdRelationship</h3>
+        <h4>Get information about a relationship to another user.</h4>
+        <h3>postUsersByUserIdRelationship</h3>
+        <h4>Modify the relationship between the current user and the target user.</h4>
+</script>
+<script type="text/javascript">
+    RED.nodes.registerType('eksido-instagram-service', {
+        category: 'config',
+        defaults: {
+
+            secureTokenHeaderOrQueryName: { value: "" },
+            secureTokenIsQuery: { value: false },
+            secureApiKeyHeaderOrQueryName: { value: "" },
+            secureApiKeyIsQuery: { value: false },
+
+            name: { value: "" },
+        },
+        credentials: {
+            secureTokenValue: { type:"password" },
+            secureApiKeyValue: { type:"password" },
+            temp: { type:"text" }
+        },
+        label: function () {
+            return this.name;
+        },
+        oneditprepare: function () {
+            $('#node-config-input-secureTokenHeaderOrQueryName-label').hide();
+            $('#node-config-input-secureTokenHeaderOrQueryName').hide();
+            $('#node-config-input-secureTokenValue-label').hide();
+            $('#node-config-input-secureTokenValue').hide();
+
+            $('#node-config-input-secureTokenIsQuery-label').hide();
+            $('#node-config-input-secureTokenIsQuery').hide();
+            var selected = $('#node-config-input-secureTokenIsQuery option:selected');
+            if (!selected.val()) {
+                $('#node-config-input-secureTokenIsQuery').val('false');
+            }
+            $('#node-config-input-secureApiKeyIsQuery-label').hide();
+            $('#node-config-input-secureApiKeyIsQuery').hide();
+            var selected = $('#node-config-input-secureApiKeyIsQuery option:selected');
+            if (!selected.val()) {
+                $('#node-config-input-secureApiKeyIsQuery').val(false);
+            }
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="eksido-instagram-service">
+
+    <div class="form-row">
+        <label id="node-config-input-secureApiKeyHeaderOrQueryName-label" for="node-config-input-secureApiKeyHeaderOrQueryName"><i class="fa fa-list"></i> <span data-i18n="Instagram.label.header"></span></label>
+        <input type="text" id="node-config-input-secureApiKeyHeaderOrQueryName" placeholder="">
+    </div>
+    <div class="form-row">
+        <label id="node-config-input-secureApiKeyValue-label" for="node-config-input-secureApiKeyValue"><i class="fa fa-lock"></i> <span data-i18n="Instagram.label.value"></span></label>
+        <input type="password" id="node-config-input-secureApiKeyValue" placeholder="">
+    </div>
+    <div class="form-row">
+        <label id="node-config-input-secureApiKeyIsQuery-label" for="node-config-input-secureApiKeyIsQuery"><i class="fa fa-dot-circle-o"></i> <span data-i18n="Instagram.label.isQuery"></span></label>
+        <select id="node-config-input-secureApiKeyIsQuery">
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="eksido-instagram-service">
+
+    <p><b>Header</b>: Variable name to set token</p>
+    <p><b>Value</b>: Value of token</p>
+    <p><b>Header</b>: Variable name to set API key</p>
+    <p><b>Value</b>: Value of API key</p>
+</script>
