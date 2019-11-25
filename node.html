@@ -1,9 +1,9 @@
 <script type="text/javascript">
     RED.nodes.registerType('eksido-instagram', {
-        category: 'function',
-        color: '#89bf04',
+        category: 'Social Media',
+        color: '#ffffff',
         defaults: {
-            service: { value: "", type: "eksido-instagram-service", required: true },
+            service: { value: "", type: "instagram-service", required: true },
             method: { value: "", required: true },
             getGeographiesByGeoIdMediaRecent_geoId: { value: "" },
             getGeographiesByGeoIdMediaRecent_geoIdType: { value: "str" },
@@ -121,7 +121,7 @@
         outputs: 1,
         icon: 'icon.png',
         label: function () {
-            return this.name || "eksido-instagram";
+            return this.name || "instagram";
         },
         oneditprepare: function () {
             var selectedMethod = $('#node-input-method option:selected');
@@ -1026,7 +1026,7 @@
     });
 </script>
 
-<script type="text/x-red" data-template-name="eksido-instagram">
+<script type="text/x-red" data-template-name="instagram">
     <div class="form-row">
         <label for="node-input-service"><i class="fa fa-cloud"></i> <span data-i18n="Instagram.label.service"></span></label>
         <input type="text" id="node-input-service">
@@ -1470,7 +1470,7 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="eksido-instagram">
+<script type="text/x-red" data-help-name="instagram">
 
     <p>Description of Instagram RESTful API.
 
@@ -1594,7 +1594,7 @@ Security scope `public_content` is required to read information about other user
         <h4>Modify the relationship between the current user and the target user.</h4>
 </script>
 <script type="text/javascript">
-    RED.nodes.registerType('eksido-instagram-service', {
+    RED.nodes.registerType('instagram-service', {
         category: 'config',
         defaults: {
 
@@ -1635,7 +1635,7 @@ Security scope `public_content` is required to read information about other user
     });
 </script>
 
-<script type="text/x-red" data-template-name="eksido-instagram-service">
+<script type="text/x-red" data-template-name="instagram-service">
 
     <div class="form-row">
         <label id="node-config-input-secureApiKeyHeaderOrQueryName-label" for="node-config-input-secureApiKeyHeaderOrQueryName"><i class="fa fa-list"></i> <span data-i18n="Instagram.label.header"></span></label>
@@ -1659,7 +1659,7 @@ Security scope `public_content` is required to read information about other user
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="eksido-instagram-service">
+<script type="text/x-red" data-help-name="instagram-service">
 
     <p><b>Header</b>: Variable name to set token</p>
     <p><b>Value</b>: Value of token</p>
