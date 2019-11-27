@@ -19,5 +19,6 @@
     "request": "2.83.0",
     "file-type": "^10.7.1"
   },
+  "author": "Franz Malten Buemann <fmb@eksido.com> (https://eksido.com)",
   "license": "Apache-2.0"
 }
